@@ -1,0 +1,824 @@
+### Blenda Defante Terra | blenda.terra@iff.edu.br | 2023-08 ###
+
+
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://example.org/rules/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix bbo: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .
+
+#Pools
+:PoolsMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//process"
+  ].
+
+:PoolsMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:PoolsMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:Process
+ ]
+].
+
+#Tasks
+:TasksMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//task"
+  ].
+
+:TasksMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:TasksMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:Task
+ ]
+].
+
+:TasksMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:TasksMap rr:predicateObjectMap [
+  rr:predicate bbo:has_incoming;
+  rr:objectMap [
+    rr:template "http://localhost/{incoming}"
+  ]
+].
+
+:TasksMap rr:predicateObjectMap [
+  rr:predicate bbo:has_outgoing;
+  rr:objectMap [
+    rr:template "http://localhost/{outgoing}"
+  ]
+].
+
+#Tasks has input resources
+:TasksInputResourceMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//task/dataInputAssociation"
+  ].
+
+:TasksInputResourceMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:TasksInputResourceMap rr:predicateObjectMap [
+  rr:predicate bbo:has_dataResourceInput;
+  rr:objectMap [
+    rr:template "http://localhost/{sourceRef}"
+  ]
+].
+
+#Tasks has output resources
+:TasksOutputResourceMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//task/dataOutputAssociation"
+  ].
+
+:TasksOutputResourceMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:TasksOutputResourceMap rr:predicateObjectMap [
+  rr:predicate bbo:has_dataResourceOutput;
+  rr:objectMap [
+    rr:template "http://localhost/{targetRef}"
+  ]
+].
+
+
+#User Tasks
+:UserTasksMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//userTask"
+  ].
+
+:UserTasksMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:UserTasksMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:UserTask
+ ]
+].
+
+:UserTasksMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:UserTasksMap rr:predicateObjectMap [
+  rr:predicate bbo:has_incoming;
+  rr:objectMap [
+    rr:template "http://localhost/{incoming}"
+  ]
+].
+
+:UserTasksMap rr:predicateObjectMap [
+  rr:predicate bbo:has_outgoing;
+  rr:objectMap [
+    rr:template "http://localhost/{outgoing}"
+  ]
+].
+
+#UserTasksMap has input resources
+:UserTasksInputResourceMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//userTask/dataInputAssociation"
+  ].
+
+:UserTasksInputResourceMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:UserTasksInputResourceMap rr:predicateObjectMap [
+  rr:predicate bbo:has_dataResourceInput;
+  rr:objectMap [
+    rr:template "http://localhost/{sourceRef}"
+  ]
+].
+
+#User Tasks has output resources
+:UserTasksOutputResourceMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//userTask/dataOutputAssociation"
+  ].
+
+:UserTasksOutputResourceMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:UserTasksOutputResourceMap rr:predicateObjectMap [
+  rr:predicate bbo:has_dataResourceOutput;
+  rr:objectMap [
+    rr:template "http://localhost/{targetRef}"
+  ]
+].
+
+
+#Service Tasks
+:ServiceTasksMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//serviceTask"
+  ].
+
+:ServiceTasksMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:ServiceTasksMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:ServiceTask
+ ]
+].
+
+:ServiceTasksMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:ServiceTasksMap rr:predicateObjectMap [
+  rr:predicate bbo:has_incoming;
+  rr:objectMap [
+    rr:template "http://localhost/{incoming}"
+  ]
+].
+
+:ServiceTasksMap rr:predicateObjectMap [
+  rr:predicate bbo:has_outgoing;
+  rr:objectMap [
+    rr:template "http://localhost/{outgoing}"
+  ]
+].
+
+#ServiceTasksMap has input resources
+:ServiceTasksInputResourceMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//serviceTask/dataInputAssociation"
+  ].
+
+:ServiceTasksInputResourceMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:ServiceTasksInputResourceMap rr:predicateObjectMap [
+  rr:predicate bbo:has_dataResourceInput;
+  rr:objectMap [
+    rr:template "http://localhost/{sourceRef}"
+  ]
+].
+
+#Service Tasks has output resources
+:ServiceTasksOutputResourceMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//serviceTask/dataOutputAssociation"
+  ].
+
+:ServiceTasksOutputResourceMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:ServiceTasksOutputResourceMap rr:predicateObjectMap [
+  rr:predicate bbo:has_dataResourceOutput;
+  rr:objectMap [
+    rr:template "http://localhost/{targetRef}"
+  ]
+].
+
+
+#Manual Tasks
+:ManualTasksMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//manualTask"
+  ].
+
+:ManualTasksMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:ManualTasksMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:ManualTask
+ ]
+].
+
+:ManualTasksMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:ManualTasksMap rr:predicateObjectMap [
+  rr:predicate bbo:has_incoming;
+  rr:objectMap [
+    rr:template "http://localhost/{incoming}"
+  ]
+].
+
+:ManualTasksMap rr:predicateObjectMap [
+  rr:predicate bbo:has_outgoing;
+  rr:objectMap [
+    rr:template "http://localhost/{outgoing}"
+  ]
+].
+
+#ManualTasksMap has input resources
+:ManualTasksInputResourceMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//manualTask/dataInputAssociation"
+  ].
+
+:ManualTasksInputResourceMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:ManualTasksInputResourceMap rr:predicateObjectMap [
+  rr:predicate bbo:has_dataResourceInput;
+  rr:objectMap [
+    rr:template "http://localhost/{sourceRef}"
+  ]
+].
+
+#Manual Tasks has output resources
+:ManualTasksOutputResourceMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//manualTask/dataOutputAssociation"
+  ].
+
+:ManualTasksOutputResourceMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:ManualTasksOutputResourceMap rr:predicateObjectMap [
+  rr:predicate bbo:has_dataResourceOutput;
+  rr:objectMap [
+    rr:template "http://localhost/{targetRef}"
+  ]
+].
+
+
+#Inlusive Gateways
+:InclusiveGatewaysMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//inclusiveGateway"
+  ].
+
+:InclusiveGatewaysMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:InclusiveGatewaysMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:InclusiveGateway
+ ]
+].
+
+:InclusiveGatewaysMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:InclusiveGatewaysMap rr:predicateObjectMap [
+  rr:predicate bbo:has_incoming;
+  rr:objectMap [
+    rr:template "http://localhost/{incoming}"
+  ]
+].
+
+:InclusiveGatewaysMap rr:predicateObjectMap [
+  rr:predicate bbo:has_outgoing;
+  rr:objectMap [
+    rr:template "http://localhost/{outgoing}"
+  ]
+].
+
+
+#Exclusive Gateways
+:ExclusiveGatewaysMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//exclusiveGateway"
+].
+
+:ExclusiveGatewaysMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:ExclusiveGatewaysMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:ExclusiveGateway
+ ]
+].
+
+:ExclusiveGatewaysMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:ExclusiveGatewaysMap rr:predicateObjectMap [
+  rr:predicate bbo:has_incoming;
+  rr:objectMap [
+    rr:template "http://localhost/{incoming}"
+  ]
+].
+
+:ExclusiveGatewaysMap rr:predicateObjectMap [
+  rr:predicate bbo:has_outgoing;
+  rr:objectMap [
+    rr:template "http://localhost/{outgoing}"
+  ]
+].
+
+
+#Exclusive Gateways with default path
+:DefaultPathMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//exclusiveGateway[@default]"
+].
+
+:DefaultPathMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+:DefaultPathMap rr:predicateObjectMap [
+  rr:predicate bbo:DefaultSequenceFlow;
+  rr:objectMap [
+    rr:template "http://localhost/{@default}"
+  ]
+].
+
+
+#Converging exclusive gateways
+:ConvergingGatewaysMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//exclusiveGateway[@gatewayDirection='Converging']"
+].
+
+:ConvergingGatewaysMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:ConvergingGatewaysMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:ConvergingGateway
+ ]
+].
+
+
+#Mixed exclusive gateways
+:MixedGatewaysMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//exclusiveGateway[@gatewayDirection='Mixed']"
+].
+
+:MixedGatewaysMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:MixedGatewaysMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:MixedGateway
+ ]
+].
+
+
+#Parallel Gateways
+:ParallelGateways a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//parallelGateway"
+  ].
+
+:ParallelGateways rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:ParallelGateways rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:ParallelGateway
+ ]
+].
+
+:ParallelGateways rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:ParallelGateways rr:predicateObjectMap [
+  rr:predicate bbo:has_incoming;
+  rr:objectMap [
+    rr:template "http://localhost/{incoming}"
+  ]
+].
+
+:ParallelGateways rr:predicateObjectMap [
+  rr:predicate bbo:has_outgoing;
+  rr:objectMap [
+    rr:template "http://localhost/{outgoing}"
+  ]
+].
+
+
+#Diverging parallel gateways
+:DivergingGatewaysMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//parallelGateway[@gatewayDirection='Diverging']"
+].
+
+:DivergingGatewaysMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:DivergingGatewaysMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:DivergingGateway
+ ]
+].
+
+
+#Start Event
+:StartEventsMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//startEvent"
+  ].
+
+:StartEventsMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:StartEventsMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:StartEvent
+ ]
+].
+
+:StartEventsMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:StartEventsMap rr:predicateObjectMap [
+  rr:predicate bbo:has_outgoing;
+  rr:objectMap [
+    rr:template "http://localhost/{outgoing}"
+  ]
+].
+
+
+#End Events
+:EndEventsMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//endEvent"
+  ].
+
+:EndEventsMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:EndEventsMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:EndEvent
+ ]
+].
+ 
+:EndEventsMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:EndEventsMap rr:predicateObjectMap [
+  rr:predicate bbo:has_incoming;
+  rr:objectMap [
+    rr:template "http://localhost/{incoming}"
+  ]
+].
+
+
+#Timer Events
+:TimerEventsMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//intermediateCatchEvent/timerEventDefinition"
+  ].
+
+:TimerEventsMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:TimerEventsMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:TimerEvent
+ ]
+].
+
+
+#Conditional Events
+:ConditionalEventsMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//intermediateCatchEvent/conditionalEventDefinition"
+  ].
+
+:ConditionalEventsMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:ConditionalEventsMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:ConditionalEvent
+ ]
+].
+
+
+#DocumentResources (Artifacts or DataObjects)
+:DataObjectsMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//dataObject"
+  ].
+
+:DataObjectsMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:DataObjectsMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:DocumentResource
+ ]
+].
+
+:DataObjectsMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+
+#Agent (Lane)
+:AgentsMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//lane"
+  ].
+
+:AgentsMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:AgentsMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:Agent
+ ]
+].
+
+:AgentsMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+
+#Intermediate Events
+:IntermediateCatchEventsMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//intermediateCatchEvent"
+  ].
+
+:IntermediateCatchEventsMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:IntermediateCatchEventsMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:IntermediateCatchEvent
+ ]
+].
+
+:IntermediateCatchEventsMap rr:predicateObjectMap [
+  rr:predicate bbo:name;
+  rr:objectMap [
+    rml:reference "@name"
+  ]
+].
+
+:IntermediateCatchEventsMap rr:predicateObjectMap [
+  rr:predicate bbo:has_incoming;
+  rr:objectMap [
+    rr:template "http://localhost/{incoming}"
+  ]
+].
+
+:IntermediateCatchEventsMap rr:predicateObjectMap [
+  rr:predicate bbo:has_outgoing;
+  rr:objectMap [
+    rr:template "http://localhost/{outgoing}"
+  ]
+].
+
+
+#Sequence Flows
+:SequenceFlowsMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//sequenceFlow"
+  ].
+
+:SequenceFlowsMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:SequenceFlowsMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:SequenceFlow
+ ]
+].
+
+:SequenceFlowsMap rr:predicateObjectMap [
+  rr:predicate bbo:has_sourceRef;
+  rr:objectMap [
+    rr:template "http://localhost/{@sourceRef}"
+  ]
+].
+
+:SequenceFlowsMap rr:predicateObjectMap [
+  rr:predicate bbo:has_targetRef;
+  rr:objectMap [
+    rr:template "http://localhost/{@targetRef}"
+  ]
+].
+
+
+#Conditional Sequence Flow
+:ConditionalSequenceFlowMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//sequenceFlow/conditionExpression"
+  ].
+
+:ConditionalSequenceFlowMap rr:subjectMap [
+  rr:template  "http://localhost/{parent::*/@id}"
+].
+
+:ConditionalSequenceFlowMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:ConditionalSequenceFlow
+ ]
+].
+
+
+#Parallel Multiple Event
+:ParallelEventMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama_ufpr.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//intermediateCatchEvent[@parallelMultiple='true']"
+  ].
+
+:ParallelEventMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:ParallelEventMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:ParallelMultipleEvent
+ ]
+].
