@@ -13,7 +13,7 @@
 #Pools
 :PoolsMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//process"
   ].
@@ -32,7 +32,7 @@
 #Tasks
 :TasksMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//task"
   ].
@@ -72,7 +72,7 @@
 #Tasks has input resources
 :TasksInputResourceMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//task/dataInputAssociation"
   ].
@@ -91,7 +91,7 @@
 #Tasks has output resources
 :TasksOutputResourceMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//task/dataOutputAssociation"
   ].
@@ -111,7 +111,7 @@
 #User Tasks
 :UserTasksMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//userTask"
   ].
@@ -151,7 +151,7 @@
 #UserTasksMap has input resources
 :UserTasksInputResourceMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//userTask/dataInputAssociation"
   ].
@@ -170,7 +170,7 @@
 #User Tasks has output resources
 :UserTasksOutputResourceMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//userTask/dataOutputAssociation"
   ].
@@ -190,7 +190,7 @@
 #Service Tasks
 :ServiceTasksMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//serviceTask"
   ].
@@ -230,7 +230,7 @@
 #ServiceTasksMap has input resources
 :ServiceTasksInputResourceMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//serviceTask/dataInputAssociation"
   ].
@@ -249,7 +249,7 @@
 #Service Tasks has output resources
 :ServiceTasksOutputResourceMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//serviceTask/dataOutputAssociation"
   ].
@@ -269,7 +269,7 @@
 #Manual Tasks
 :ManualTasksMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//manualTask"
   ].
@@ -309,7 +309,7 @@
 #ManualTasksMap has input resources
 :ManualTasksInputResourceMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//manualTask/dataInputAssociation"
   ].
@@ -328,7 +328,7 @@
 #Manual Tasks has output resources
 :ManualTasksOutputResourceMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//manualTask/dataOutputAssociation"
   ].
@@ -348,7 +348,7 @@
 #Inlusive Gateways
 :InclusiveGatewaysMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//inclusiveGateway"
   ].
@@ -389,7 +389,7 @@
 #Exclusive Gateways
 :ExclusiveGatewaysMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//exclusiveGateway"
 ].
@@ -430,7 +430,7 @@
 #Exclusive Gateways with default path
 :DefaultPathMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//exclusiveGateway[@default]"
 ].
@@ -449,7 +449,7 @@
 #Converging exclusive gateways
 :ConvergingGatewaysMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//exclusiveGateway[@gatewayDirection='Converging']"
 ].
@@ -469,7 +469,7 @@
 #Mixed exclusive gateways
 :MixedGatewaysMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//exclusiveGateway[@gatewayDirection='Mixed']"
 ].
@@ -489,7 +489,7 @@
 #Parallel Gateways
 :ParallelGateways a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//parallelGateway"
   ].
@@ -530,7 +530,7 @@
 #Diverging parallel gateways
 :DivergingGatewaysMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//parallelGateway[@gatewayDirection='Diverging']"
 ].
@@ -550,7 +550,7 @@
 #Start Event
 :StartEventsMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//startEvent"
   ].
@@ -584,7 +584,7 @@
 #End Events
 :EndEventsMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//endEvent"
   ].
@@ -618,7 +618,7 @@
 #Timer Events
 :TimerEventsMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//intermediateCatchEvent/timerEventDefinition"
   ].
@@ -638,7 +638,7 @@
 #Conditional Events
 :ConditionalEventsMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//intermediateCatchEvent/conditionalEventDefinition"
   ].
@@ -658,7 +658,7 @@
 #DocumentResources (Artifacts or DataObjects)
 :DataObjectsMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//dataObject"
   ].
@@ -685,7 +685,7 @@
 #Agent (Lane)
 :AgentsMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//lane"
   ].
@@ -712,7 +712,7 @@
 #Intermediate Events
 :IntermediateCatchEventsMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//intermediateCatchEvent"
   ].
@@ -753,7 +753,7 @@
 #Sequence Flows
 :SequenceFlowsMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//sequenceFlow"
   ].
@@ -787,7 +787,7 @@
 #Conditional Sequence Flow
 :ConditionalSequenceFlowMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//sequenceFlow/conditionExpression"
   ].
@@ -807,7 +807,7 @@
 #Parallel Multiple Event
 :ParallelEventMap a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "diagrama_ufpr.xml";
+    rml:source "diagrama1.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "//intermediateCatchEvent[@parallelMultiple='true']"
   ].
@@ -820,5 +820,24 @@
   rr:predicate rdf:type;
   rr:objectMap [
    rr:constant bbo:ParallelMultipleEvent
+ ]
+].
+
+#Call Activities Map
+:CallActivitiesMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "diagrama1.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "//callActivity"
+  ].
+
+:CallActivitiesMap rr:subjectMap [
+  rr:template  "http://localhost/{@id}"
+].
+
+:CallActivitiesMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [
+   rr:constant bbo:CallActivity
  ]
 ].
